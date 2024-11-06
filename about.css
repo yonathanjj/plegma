@@ -1,0 +1,304 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+
+body {
+    font-family: 'Kadwa', serif;
+    background: #090c9b; /* Desired background color */
+    color: white; /* Text color */
+    margin: 0;
+    padding: 0;
+    cursor: none; /* Hide the default cursor */
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    background-color: transparent;
+    z-index: 1000; /* Ensure navbar is on top */
+}
+
+/* Logo Link */
+.logo-link {
+    margin-left: 4rem; /* Adjust logo spacing */
+}
+
+/* Logo Image */
+.logo-image {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    justify-content: center; /* Center the nav links */
+    gap: 1.5rem; /* Adjust space between links if needed */
+    flex-grow: 1; /* Allow the links to take available space */
+}
+
+/* Navigation Link Styles */
+.nav-link {
+    font-size: 1.125rem; /* Tailwind's text-lg */
+    font-weight: 600;
+    text-decoration: none;
+    color: black; /* Default text color */
+    position: relative; /* Position for hover effect */
+    padding: 8px 12px; /* Reduced padding for smaller background */
+    background-color: white; /* Solid white background */
+    border-radius: 25px; /* Rounded edges with a curve of 25px */
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Subtle color and shadow transition */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for distinction */
+}
+
+/* Hover Effect */
+.nav-link:hover {
+    color: black; /* Change text color on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px; /* Position just below the text */
+    height: 5px; /* Height of the hover effect */
+    background-color: white; /* White curve below the link */
+    border-radius: 5px; /* Rounded edges */
+    transform: scaleX(0); /* Start with a scale of 0 for the line */
+    transition: transform 0.3s ease; /* Subtle scaling transition */
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1); /* Scale the line to full width on hover */
+}
+
+/* Cursor Styles */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.15s ease;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    transition: transform 0.15s ease;
+}
+
+/* Simple hover effect */
+.cursor.hovered {
+    transform: scale(1.5);
+}
+
+.cursor-ring.hovered {
+    width: 50px;
+    height: 50px;
+    border-color: #FF6347;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 90%; /* Slightly reduce font size for mobile */
+    }
+    .navbar {
+        padding: 1rem; /* Adjust padding */
+        justify-content: space-between; /* Space out logo and links */
+        align-items: center; /* Center align items vertically */
+    }
+
+    .logo-link {
+        margin-left: 1rem; /* Adjust margin for the logo */
+    }
+
+    .logo-image {
+        width: 2.5rem; /* Adjust logo size for mobile */
+        height: 2.5rem; /* Adjust logo size for mobile */
+    }
+
+    .nav-links {
+        display: flex; /* Keep links in a row */
+        gap: 1rem; /* Space between links */
+        margin-right: 1rem; /* Add margin to the right */
+    }
+
+    .nav-link {
+        font-size: 1rem; /* Adjust font size for mobile */
+        padding: 0.5rem 0.75rem; /* Adjust padding for touch targets and a more balanced look */
+        text-decoration: none; /* Remove underline */
+        color: white; /* Ensure text is visible */
+        background-color: rgba(255, 215, 0, 0.1); /* Light gold background for visibility */
+        border-radius: 25px; /* Rounded edges for buttons */
+        transition: color 0.2s, background-color 0.2s; /* Transition for color and background change */
+    }
+
+    .nav-link:hover {
+        color: #FFD700; /* Change text color on hover */
+        background-color: rgba(255, 215, 0, 0.2); /* Darken background on hover for distinction */
+    }
+}
+
+.about-section {
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    padding: 50px 4rem; /* Top/bottom padding and left margin */
+    background-color: #090c9b; /* Light background color for contrast */
+}
+
+.content-container {
+    max-width: 95%; /* Change max width to 85% for better responsiveness */
+    width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+.section-title {
+    font-size: 50px; /* Title font size */
+    font-weight: bold;
+    color: #fff; /* Change to white for better contrast */
+    margin-bottom: 20px; /* Space below title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+.section-paragraph {
+    font-size: 24px; /* Paragraph font size */
+    color: #e0e0e0; /* Slightly lighter color */
+    line-height: 1.5; /* Improve readability */
+    margin-bottom: 40px; /* Space before the goals section */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+.goals-title {
+    font-size: 32px; /* Subtitle font size */
+    font-weight: bold;
+    color: #fff; /* Change to white for better contrast */
+    margin-bottom: 20px; /* Space below subtitle */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+.goals-list {
+    list-style-type: none; /* Remove bullets */
+    padding-left: 0; /* Remove padding */
+}
+
+.goals-list li {
+    font-size: 20px; /* Font size for list items */
+    color: #e0e0e0; /* Slightly lighter color */
+    margin-bottom: 10px; /* Space between list items */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column; /* Stack items vertically on small screens */
+        padding: 30px 2rem; /* Adjust padding for smaller screens */
+    }
+
+    .section-title {
+        font-size: 36px; /* Reduce title font size */
+    }
+
+    .section-paragraph {
+        font-size: 18px; /* Reduce paragraph font size */
+    }
+
+    .goals-title {
+        font-size: 24px; /* Reduce subtitle font size */
+    }
+
+    .goals-list li {
+        font-size: 18px; /* Reduce list item font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 28px; /* Further reduce title font size for very small screens */
+    }
+
+    .section-paragraph {
+        font-size: 16px; /* Further reduce paragraph font size */
+    }
+
+    .goals-title {
+        font-size: 20px; /* Further reduce subtitle font size */
+    }
+
+    .goals-list li {
+        font-size: 16px; /* Further reduce list item font size */
+    }
+}
+
+
+.services-section {
+    padding: 50px 4rem; /* Top/bottom padding and left/right margin */
+    background-color: #090c9b; /* Match the blue background of the about section */
+}
+
+.services-title {
+    background-color: #090c9b; /* Light background color for contrast */
+    font-size: 50px; /* Title font size */
+    font-weight: bold;
+    color: #ffffff; /* Change to a contrasting color for visibility */
+    margin-bottom: 20px; /* Space below title */
+    text-align: left; /* Align text to the left */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
+}
+
+.services-slider {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    overflow: hidden; /* Hide overflow for smooth sliding */
+}
+
+.services-row {
+    display: flex;
+    height: 100px; /* Set a fixed height for rows */
+    position: relative; /* Position relative for absolute children */
+    overflow: hidden; /* Hide overflow to achieve sliding effect */
+    margin-bottom: 20px; /* Space between rows */
+    width: 100%; /* Ensure it spans the entire width */
+}
+
+.service-box {
+    flex: 0 0 auto; /* Prevent flex items from shrinking */
+    min-width: 200px; /* Minimum width for the boxes */
+    height: 100%; /* Match the row height */
+    padding: 20px; /* Padding inside boxes */
+    background-color: white; /* White background for boxes */
+    border-radius: 65px; /* Rounded corners with 65px curve */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex; /* Flex to center text */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+}
+
+.services-title {
+    font-size: 50px; /* Title font size */
+    font-weight: bold;
+    color: #fff; /* Change to white for better contrast */
+    margin-bottom: 20px; /* Space below title */
+}
+
+
