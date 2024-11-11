@@ -1,304 +1,305 @@
-/* Font */
-@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+
+/* Universal Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kadwa', serif;
+}
 
 body {
-    font-family: 'Kadwa', serif;
-    background: #090c9b; /* Desired background color */
-    color: white; /* Text color */
-    margin: 0;
-    padding: 0;
-    cursor: none; /* Hide the default cursor */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Kadwa', serif;
+  color: #333; /* Dark text color */
 }
 
-/* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    align-items: center; /* Align items vertically */
-    background-color: transparent;
-    z-index: 1000; /* Ensure navbar is on top */
+/* Process Section */
+.process-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px;
+  margin-top: 40px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-in-out;
 }
 
-/* Logo Link */
-.logo-link {
-    margin-left: 4rem; /* Adjust logo spacing */
+/* Header */
+.process-header {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Logo Image */
-.logo-image {
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
+/* Subtext */
+.process-subtext {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #777;
+  text-align: center;
 }
 
-/* Navigation Links */
-.nav-links {
-    display: flex;
-    justify-content: center; /* Center the nav links */
-    gap: 1.5rem; /* Adjust space between links if needed */
-    flex-grow: 1; /* Allow the links to take available space */
+/* Process Grid */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+  position: relative;
 }
 
-/* Navigation Link Styles */
-.nav-link {
-    font-size: 1.125rem; /* Tailwind's text-lg */
-    font-weight: 600;
-    text-decoration: none;
-    color: black; /* Default text color */
-    position: relative; /* Position for hover effect */
-    padding: 8px 12px; /* Reduced padding for smaller background */
-    background-color: white; /* Solid white background */
-    border-radius: 25px; /* Rounded edges with a curve of 25px */
-    transition: color 0.3s ease, box-shadow 0.3s ease; /* Subtle color and shadow transition */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for distinction */
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Hover Effect */
-.nav-link:hover {
-    color: black; /* Change text color on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.nav-link::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -5px; /* Position just below the text */
-    height: 5px; /* Height of the hover effect */
-    background-color: white; /* White curve below the link */
-    border-radius: 5px; /* Rounded edges */
-    transform: scaleX(0); /* Start with a scale of 0 for the line */
-    transition: transform 0.3s ease; /* Subtle scaling transition */
+.card p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-.nav-link:hover::before {
-    transform: scaleX(1); /* Scale the line to full width on hover */
+.card ul {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Cursor Styles */
-.cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    background-color: #FFD700;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    transition: transform 0.15s ease;
+.card ul li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  position: relative;
 }
 
-.cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    border: 2px solid #FFD700;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.5;
-    transition: transform 0.15s ease;
+.card ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0077cc;
+  font-size: 1.2rem;
 }
 
-/* Simple hover effect */
-.cursor.hovered {
-    transform: scale(1.5);
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-.cursor-ring.hovered {
-    width: 50px;
-    height: 50px;
-    border-color: #FF6347;
+/* Hover Image Card */
+.image-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.image-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Layout */
 @media (max-width: 768px) {
-    body {
-        font-size: 90%; /* Slightly reduce font size for mobile */
-    }
-    .navbar {
-        padding: 1rem; /* Adjust padding */
-        justify-content: space-between; /* Space out logo and links */
-        align-items: center; /* Center align items vertically */
-    }
+  .process-grid {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
 
-    .logo-link {
-        margin-left: 1rem; /* Adjust margin for the logo */
-    }
+  .card {
+    padding: 15px;
+  }
 
-    .logo-image {
-        width: 2.5rem; /* Adjust logo size for mobile */
-        height: 2.5rem; /* Adjust logo size for mobile */
-    }
+  .card h3 {
+    font-size: 1.3rem; /* Smaller title font */
+  }
 
-    .nav-links {
-        display: flex; /* Keep links in a row */
-        gap: 1rem; /* Space between links */
-        margin-right: 1rem; /* Add margin to the right */
-    }
+  .card p {
+    font-size: 0.9rem; /* Smaller text */
+  }
 
-    .nav-link {
-        font-size: 1rem; /* Adjust font size for mobile */
-        padding: 0.5rem 0.75rem; /* Adjust padding for touch targets and a more balanced look */
-        text-decoration: none; /* Remove underline */
-        color: white; /* Ensure text is visible */
-        background-color: rgba(255, 215, 0, 0.1); /* Light gold background for visibility */
-        border-radius: 25px; /* Rounded edges for buttons */
-        transition: color 0.2s, background-color 0.2s; /* Transition for color and background change */
-    }
+  .process-header {
+    font-size: 2rem; /* Smaller header font */
+  }
 
-    .nav-link:hover {
-        color: #FFD700; /* Change text color on hover */
-        background-color: rgba(255, 215, 0, 0.2); /* Darken background on hover for distinction */
-    }
+  .process-subtext {
+    font-size: 1rem; /* Smaller subtext font */
+  }
 }
 
-.about-section {
-    display: flex;
-    justify-content: flex-start; /* Align content to the left */
-    padding: 50px 4rem; /* Top/bottom padding and left margin */
-    background-color: #090c9b; /* Light background color for contrast */
+
+
+
+/* Team Section */
+.team-section {
+  padding: 50px 4rem;
+  background-color: #03045e;
+  color: #fff;
 }
 
-.content-container {
-    max-width: 95%; /* Change max width to 85% for better responsiveness */
-    width: 100%; /* Ensure it takes full width up to max-width */
+.team-header {
+  font-size: 3rem;
+  text-align: left;
+  margin-bottom: 40px;
+  color: #fff;
 }
 
-.section-title {
-    font-size: 50px; /* Title font size */
-    font-weight: bold;
-    color: #fff; /* Change to white for better contrast */
-    margin-bottom: 20px; /* Space below title */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.section-paragraph {
-    font-size: 24px; /* Paragraph font size */
-    color: #e0e0e0; /* Slightly lighter color */
-    line-height: 1.5; /* Improve readability */
-    margin-bottom: 40px; /* Space before the goals section */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+/* Team Card Styling */
+.team-card {
+  position: relative;
+  width: 394px;
+  height: 390px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.goals-title {
-    font-size: 32px; /* Subtitle font size */
-    font-weight: bold;
-    color: #fff; /* Change to white for better contrast */
-    margin-bottom: 20px; /* Space below subtitle */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+/* Team Image with Grainy Effect */
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.5) contrast(1.2); /* Adds a slight grainy look */
+  border-radius: 20px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.goals-list {
-    list-style-type: none; /* Remove bullets */
-    padding-left: 0; /* Remove padding */
+/* Dark Overlay */
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+  mix-blend-mode: multiply; /* Enhances the grainy look */
+  pointer-events: none;
 }
 
-.goals-list li {
-    font-size: 20px; /* Font size for list items */
-    color: #e0e0e0; /* Slightly lighter color */
-    margin-bottom: 10px; /* Space between list items */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+/* Name Overlay */
+.name-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 333px;
+  height: 100px;
+  background: linear-gradient(90deg, #070FA5, #ffffff);
+  color: #fff;
+  border-top-right-radius: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  transition: opacity 0.3s ease;
 }
 
-/* Responsive Styles */
+.name-overlay h3,
+.name-overlay p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.team-name {
+  font-size: 1.3rem;
+}
+
+.team-role {
+  font-size: 1rem;
+  color: #333; /* Adjusted for contrast */
+}
+
+/* Hover Effects */
+.team-card:hover .team-image {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+
+/* Tablet view */
 @media (max-width: 768px) {
-    .about-section {
-        flex-direction: column; /* Stack items vertically on small screens */
-        padding: 30px 2rem; /* Adjust padding for smaller screens */
-    }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .section-title {
-        font-size: 36px; /* Reduce title font size */
-    }
+  .team-header {
+    font-size: 2.5rem;
+  }
 
-    .section-paragraph {
-        font-size: 18px; /* Reduce paragraph font size */
-    }
+  .name-overlay {
+    width: 100%; /* Full width for mobile */
+    height: auto;
+    padding: 10px;
+  }
 
-    .goals-title {
-        font-size: 24px; /* Reduce subtitle font size */
-    }
+  .team-name {
+    font-size: 1.2rem;
+  }
 
-    .goals-list li {
-        font-size: 18px; /* Reduce list item font size */
-    }
+  .team-role {
+    font-size: 0.9rem;
+  }
 }
 
+/* Mobile view */
 @media (max-width: 480px) {
-    .section-title {
-        font-size: 28px; /* Further reduce title font size for very small screens */
-    }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .section-paragraph {
-        font-size: 16px; /* Further reduce paragraph font size */
-    }
+  .team-header {
+    font-size: 2rem;
+  }
 
-    .goals-title {
-        font-size: 20px; /* Further reduce subtitle font size */
-    }
+  .name-overlay {
+    height: 80px; /* Smaller for mobile */
+  }
 
-    .goals-list li {
-        font-size: 16px; /* Further reduce list item font size */
-    }
+  .team-name {
+    font-size: 1.1rem;
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+  }
 }
-
-
-.services-section {
-    padding: 50px 4rem; /* Top/bottom padding and left/right margin */
-    background-color: #090c9b; /* Match the blue background of the about section */
-}
-
-.services-title {
-    background-color: #090c9b; /* Light background color for contrast */
-    font-size: 50px; /* Title font size */
-    font-weight: bold;
-    color: #ffffff; /* Change to a contrasting color for visibility */
-    margin-bottom: 20px; /* Space below title */
-    text-align: left; /* Align text to the left */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
-}
-
-.services-slider {
-    display: flex;
-    flex-direction: column; /* Stack rows vertically */
-    overflow: hidden; /* Hide overflow for smooth sliding */
-}
-
-.services-row {
-    display: flex;
-    height: 100px; /* Set a fixed height for rows */
-    position: relative; /* Position relative for absolute children */
-    overflow: hidden; /* Hide overflow to achieve sliding effect */
-    margin-bottom: 20px; /* Space between rows */
-    width: 100%; /* Ensure it spans the entire width */
-}
-
-.service-box {
-    flex: 0 0 auto; /* Prevent flex items from shrinking */
-    min-width: 200px; /* Minimum width for the boxes */
-    height: 100%; /* Match the row height */
-    padding: 20px; /* Padding inside boxes */
-    background-color: white; /* White background for boxes */
-    border-radius: 65px; /* Rounded corners with 65px curve */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    display: flex; /* Flex to center text */
-    align-items: center; /* Center text vertically */
-    justify-content: center; /* Center text horizontally */
-}
-
-.services-title {
-    font-size: 50px; /* Title font size */
-    font-weight: bold;
-    color: #fff; /* Change to white for better contrast */
-    margin-bottom: 20px; /* Space below title */
-}
-
-
