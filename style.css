@@ -3,81 +3,91 @@
 
 body {
     font-family: 'Kadwa', serif;
-    background: #090c9b;
+    background: #03045e;
     color: white;
     margin: 0;
     padding: 0;
     cursor: none; /* Hide the default cursor */
 }
 
-/* Navbar */
+/* Navbar Wrapper */
 .navbar {
     position: fixed;
-    top: 0;
+    top: 1rem;
     left: 0;
     width: 100%;
-    padding: 1rem;
     display: flex;
-    align-items: center; /* Align items vertically */
-    background-color: transparent;
-    z-index: 1000; /* Ensure navbar is on top */
+    align-items: center;
+    padding: 0 4rem;
+    z-index: 1000;
 }
 
-/* Logo Link */
+/* Logo */
 .logo-link {
-    margin-left: 4rem; /* Adjust logo spacing */
+    margin-right: auto; /* Pushes the logo to the left */
 }
 
-/* Logo Image */
 .logo-image {
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
     cursor: pointer;
 }
 
-/* Navigation Links */
+/* Centered Navigation Links Container */
 .nav-links {
     display: flex;
-    justify-content: center; /* Center the nav links */
-    gap: 1.5rem; /* Adjust space between links if needed */
-    flex-grow: 1; /* Allow the links to take available space */
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: 50px; /* Rounded container */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    position: absolute; /* Positions nav-links independently */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Centers exactly in the middle */
 }
+
 /* Navigation Link Styles */
 .nav-link {
-    font-size: 1.125rem; /* Tailwind's text-lg */
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 500;
     text-decoration: none;
-    color: black; /* Default text color */
-    position: relative; /* Position for hover effect */
-    padding: 8px 12px; /* Reduced padding for smaller background */
-    background-color: white; /* Solid white background */
-    border-radius: 25px; /* Rounded edges with a curve of 25px */
-    transition: color 0.3s ease, box-shadow 0.3s ease; /* Subtle color and shadow transition */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for distinction */
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 25px; /* Rounded link background */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hover Effect */
-.nav-link:hover {
-    color: black; /* Change text color on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+.nav-link:hover,
+.nav-link.active {
+    background-color: #f05454; /* Highlight color */
+    color: #ffffff; /* Text color on hover */
+    box-shadow: 0 4px 8px rgba(240, 84, 84, 0.2); /* Shadow on hover */
 }
 
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+        flex-direction: row;
+        align-items: center;
+    }
 
-.nav-link::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -5px; /* Position just below the text */
-    height: 5px; /* Height of the hover effect */
-    background-color: white; /* White curve below the link */
-    border-radius: 5px; /* Rounded edges */
-    transform: scaleX(0); /* Start with a scale of 0 for the line */
-    transition: transform 0.3s ease; /* Subtle scaling transition */
-}
+    .logo-image {
+        width: 3rem; /* Reduce logo size in mobile */
+        height: 3rem;
+    }
 
-.nav-link:hover::before {
-    transform: scaleX(1); /* Scale the line to full width on hover */
+    .nav-links {
+        gap: 1rem; /* Reduce space between nav links */
+        padding: 0.3rem 1rem; /* Reduce padding of nav-links */
+    }
+
+    .nav-link {
+        font-size: 0.875rem; /* Smaller font size for links */
+        padding: 0.3rem 0.8rem; /* Reduce padding for each link */
+    }
 }
 
 
@@ -89,7 +99,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden; /* Prevent overflow from animated elements */
-    background: #090c9b; /* Dark background for contrast */
+    background: #03045e; /* Dark background for contrast */
 }
 
 .hero-content {
@@ -154,49 +164,7 @@ body {
     border-color: #FF6347;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    body {
-        font-size: 90%; /* Slightly reduce font size for mobile */
-    }
 
-    .navbar {
-        padding: 1rem; /* Adjust padding */
-        justify-content: space-between; /* Space out logo and links */
-        align-items: center; /* Center align items vertically */
-    }
-
-    .logo-link {
-        margin-left: 1rem; /* Adjust margin for the logo */
-    }
-
-    .logo-image {
-        width: 2.5rem; /* Adjust logo size for mobile */
-        height: 2.5rem; /* Adjust logo size for mobile */
-    }
-
-    .nav-links {
-        display: flex; /* Keep links in a row */
-        gap: 1rem; /* Space between links */
-        margin-right: 1rem; /* Add margin to the right */
-    }
-
-    .nav-link {
-        font-size: 1rem; /* Adjust font size for mobile */
-        padding: 0.5rem 0.75rem; /* Adjust padding for touch targets and a more balanced look */
-        text-decoration: none; /* Remove underline */
-        color: white; /* Ensure text is visible */
-        background-color: rgba(255, 215, 0, 0.1); /* Light gold background for visibility */
-        border-radius: 25px; /* Rounded edges for buttons */
-        transition: color 0.2s, background-color 0.2s; /* Transition for color and background change */
-    }
-
-    .nav-link:hover {
-        color: #FFD700; /* Change text color on hover */
-        background-color: rgba(255, 215, 0, 0.2); /* Darken background on hover for distinction */
-    }
-
-}
 
  body {
     margin: 0; /* Reset margin */
@@ -250,4 +218,133 @@ body {
         font-size: 18px; /* Adjust font size for mobile phones */
         padding: 0 10px; /* Further reduce padding */
     }
+}
+
+
+footer {
+  width: 100%;
+  padding: 40px 0;
+  color: white;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem; /* Add padding for alignment */
+  gap: 2rem; /* Add spacing between sections */
+}
+
+.footer-left, .footer-middle, .footer-center, .footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  text-align: left;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-middle {
+  gap: 10px;
+}
+
+.footer-line {
+  width: 95%;
+  height: 1px;
+  background-color: #fff;
+  margin: 0 auto 20px;
+}
+
+.footer-left a, .footer-middle a, .footer-center p, .footer-right p {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  margin: 5px 0;
+}
+
+.footer-left a:hover, .footer-middle a:hover, .footer-center p:hover {
+  color: #ff9800;
+}
+
+.subscribe-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.subscribe-box input {
+  padding: 10px;
+  font-size: 1.4rem;
+  width: 180px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.subscribe-box input::placeholder {
+  color: #ccc;
+}
+
+.subscribe-box button {
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.subscribe-box button:hover {
+  background-color: #e68900;
+}
+
+.footer-right img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-right p {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-left, .footer-middle, .footer-center, .footer-right {
+    width: 100%;
+  }
+
+  .footer-center {
+    flex-direction: column;
+  }
+
+  .subscribe-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribe-box input,
+  .subscribe-box button {
+    width: 80%;
+  }
+
+  .footer-right img {
+    width: 40px;
+  }
 }
