@@ -61,7 +61,7 @@ body {
 /* Hover Effect */
 .nav-link:hover,
 .nav-link.active {
-    background-color: #FFA500; /* Highlight color */
+    background-color: #FF0000; /* Highlight color */
     color: #ffffff; /* Text color on hover */
     box-shadow: 0 4px 8px rgba(240, 84, 84, 0.2); /* Shadow on hover */
 }
@@ -268,7 +268,7 @@ footer {
 }
 
 .footer-left a:hover, .footer-middle a:hover, .footer-center p:hover {
-  color: #ff9800;
+  color: #FF0000;
 }
 
 .subscribe-box {
@@ -296,7 +296,7 @@ footer {
 .subscribe-box button {
   padding: 10px 20px;
   font-size: 1.4rem;
-  background-color: #ff9800;
+  background-color: #FF0000;
   color: white;
   border: none;
   cursor: pointer;
@@ -304,7 +304,7 @@ footer {
 }
 
 .subscribe-box button:hover {
-  background-color: #e68900;
+  background-color: #FF0000;
 }
 
 .footer-right img {
